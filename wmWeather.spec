@@ -28,13 +28,13 @@ miejsca.
 
 %build
 %{__make} -C Src \
-        CFLAGS="%{rpmcflags} -Wall" \
+	CFLAGS="%{rpmcflags} -Wall" \
 	LIBDIR="-L/usr/X11R6/%{_lib}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1} \
-        $RPM_BUILD_ROOT%{_desktopdir}/docklets
+	$RPM_BUILD_ROOT%{_desktopdir}/docklets
 
 install Src/%{name} $RPM_BUILD_ROOT%{_bindir}
 install Src/GrabWeather $RPM_BUILD_ROOT%{_bindir}

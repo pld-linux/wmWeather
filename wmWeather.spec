@@ -12,7 +12,7 @@ BuildPrereq:    XFree86-devel
 BuildPrereq:    xpm-devel
 Buildroot: 	/tmp/%{name}-%{version}-root
 
-%define _prefix         /usr/X11R6
+%define _prefix	/usr/X11R6
 
 %description 
 wmWeather is a WindowMaker dockapp that displays the current 
@@ -60,5 +60,4 @@ rm -rf $RPM_BUILD_ROOT
   [1.23-2]
 - modified spec file for PLD use,
 - package is now FHS 2.0 compliant,
-
 - based on spec file by Rod Cordova <rcordova@ethernet.org>.

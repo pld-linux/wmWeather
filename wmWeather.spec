@@ -54,15 +54,3 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/GrabWeather
 %{_mandir}/man1/*
 /etc/X11/applnk/DockApplets/wmWeather.desktop
-
-%changelog
-* Mon May 24 1999 Piotr Czerwiñski <pius@pld.org.pl> 
-  [1.31-1]
-- updated to 1.31,
-- some cleanups.
-
-* Mon May 17 1999 Piotr Czerwiñski <pius@pld.org.pl>
-  [1.23-2]
-- modified spec file for PLD use,
-- package is now FHS 2.0 compliant,
-- based on spec file by Rod Cordova <rcordova@ethernet.org>.

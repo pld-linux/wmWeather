@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=wmWeather
+Comment=Applet that displays the weather
+Comment[pl]=Informacje o pogodzie
+Exec=wmWeather
+Terminal=0
+Type=Application

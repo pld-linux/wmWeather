@@ -10,7 +10,7 @@ Source0: 	%{name}-%{version}.tar.gz
 Source1:        wmWeather.wmconfig
 BuildPrereq:    XFree86-devel
 BuildPrereq:    xpm-devel
-Buildroot: 	/tmp/%{name}-%{version}-root
+BuildRoot:	/tmp/%{name}-%{version}-root
 
 %define _prefix	/usr/X11R6
 

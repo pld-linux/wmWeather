@@ -6,6 +6,7 @@ Release:	3
 License:	GPL
 Group:		X11/Window Managers/Tools
 Source0:	http://nis-www.lanl.gov/~mgh/WindowMaker/%{name}-%{version}.tar.gz
+# Source0-md5:	f04693aa86d22099162cff3d0b5c9275
 Source1:	%{name}.desktop
 URL:		http://nis-www.lanl.gov/~mgh/WindowMaker/DockApps.shtml
 Requires:	perl-modules

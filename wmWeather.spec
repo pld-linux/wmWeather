@@ -42,7 +42,7 @@ install Src/%{name} $RPM_BUILD_ROOT%{_bindir}
 install Src/GrabWeather $RPM_BUILD_ROOT%{_bindir}
 install Src/%{name}.1 $RPM_BUILD_ROOT%{_mandir}/man1
 
-install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/DockApplets
+#install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/DockApplets
 
 gzip -9nf HINTS BUGS CHANGES
 
@@ -55,4 +55,4 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/%{name}
 %attr(755,root,root) %{_bindir}/GrabWeather
 %{_mandir}/man1/*
-%{_applnkdir}/DockApplets/wmWeather.desktop
+#%{_applnkdir}/DockApplets/wmWeather.desktop

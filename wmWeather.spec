@@ -1,8 +1,8 @@
 Summary:	Applet that displays the weather.
 Summary(pl):	Aplet wy¶wietlaj±cy informacje o pogodzie
 Name:		wmWeather
-Version:	1.23
-Release:	2
+Version:	1.31
+Release:	1
 Copyright:	GPL
 Group:          X11/Window Managers/Tools
 Group(pl):      X11/Zarz±dcy Okien/Narzêdzia
@@ -26,8 +26,7 @@ informacje o aktualnych warunkach atmosferycznych dla wybranego miejsca.
 %setup -q
 
 %build
-make -C %{name} clean
-make -C %{name} \
+make -C Src \
         CFLAGS="$RPM_OPT_FLAGS -Wall"
 
 %install
@@ -35,9 +34,9 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1} \
         $RPM_BUILD_ROOT/etc/X11/wmconfig
 
-install -s %{name}/%{name} $RPM_BUILD_ROOT%{_bindir}
-install %{name}/GrabWeather $RPM_BUILD_ROOT%{_bindir}
-install %{name}/%{name}.1 $RPM_BUILD_ROOT%{_mandir}/man1
+install -s Src/%{name} $RPM_BUILD_ROOT%{_bindir}
+install Src/GrabWeather $RPM_BUILD_ROOT%{_bindir}
+install Src/%{name}.1 $RPM_BUILD_ROOT%{_mandir}/man1
 
 install %{SOURCE1} $RPM_BUILD_ROOT/etc/X11/wmconfig/%{name}
 
@@ -56,6 +55,11 @@ rm -rf $RPM_BUILD_ROOT
 /etc/X11/wmconfig/%{name}
 
 %changelog
+* Mon May 24 1999 Piotr Czerwiñski <pius@pld.org.pl> 
+  [1.31-1]
+- updated to 1.31,
+- some cleanups.
+
 * Mon May 17 1999 Piotr Czerwiñski <pius@pld.org.pl>
   [1.23-2]
 - modified spec file for PLD use,

@@ -15,7 +15,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define 	_prefix		/usr/X11R6
 %define 	_mandir 	%{_prefix}/man
 
-%description 
+%description
 wmWeather is a WindowMaker dockapp that displays the current weather
 conditions for a given location, in an easy to read icon.
 

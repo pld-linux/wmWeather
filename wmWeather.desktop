@@ -1,5 +1,5 @@
 [Desktop Entry]
-Name=wmWeather
+Name=WmWeather
 Comment=Applet that displays the weather
 Comment[pl]=Informacje o pogodzie
 Exec=wmWeather

@@ -2,12 +2,12 @@ Summary:	Applet that displays the weather.
 Summary(pl):	Aplet wy¶wietlaj±cy informacje o pogodzie
 Name:		wmWeather
 Version:	1.31
-Release:	1
+Release:	2
 Copyright:	GPL
 Group:          X11/Window Managers/Tools
 Group(pl):      X11/Zarz±dcy Okien/Narzêdzia
 Source0: 	%{name}-%{version}.tar.gz
-Source1:        wmWeather.wmconfig
+Source1:        wmWeather.desktop
 BuildPrereq:    XFree86-devel
 BuildPrereq:    xpm-devel
 BuildRoot:	/tmp/%{name}-%{version}-root
@@ -33,13 +33,13 @@ make -C Src \
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1} \
-        $RPM_BUILD_ROOT/etc/X11/wmconfig
+        $RPM_BUILD_ROOT/etc/X11/applnk/DockApplets
 
 install -s Src/%{name} $RPM_BUILD_ROOT%{_bindir}
 install Src/GrabWeather $RPM_BUILD_ROOT%{_bindir}
 install Src/%{name}.1 $RPM_BUILD_ROOT%{_mandir}/man1
 
-install %{SOURCE1} $RPM_BUILD_ROOT/etc/X11/wmconfig/%{name}
+install %{SOURCE1} $RPM_BUILD_ROOT/etc/X11/applnk/DockApplets
 
 gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man1/* \
 	HINTS BUGS CHANGES
@@ -53,7 +53,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/%{name}
 %attr(755,root,root) %{_bindir}/GrabWeather
 %{_mandir}/man1/*
-/etc/X11/wmconfig/%{name}
+/etc/X11/applnk/DockApplets/wmWeather.desktop
 
 %changelog
 * Mon May 24 1999 Piotr Czerwiñski <pius@pld.org.pl> 

@@ -2,7 +2,7 @@ Summary:	Applet that displays the weather
 Summary(pl):	Aplet wy¶wietlaj±cy informacje o pogodzie
 Name:		wmWeather
 Version:	1.31
-Release:	2
+Release:	3
 License:	GPL
 Group:		X11/Window Managers/Tools
 Group(de):	X11/Fenstermanager/Werkzeuge
@@ -51,7 +51,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc {HINTS,BUGS,CHANGES}.gz
+%doc *.gz
 %attr(755,root,root) %{_bindir}/%{name}
 %attr(755,root,root) %{_bindir}/GrabWeather
 %{_mandir}/man1/*

@@ -8,12 +8,12 @@ Group:          X11/Window Managers/Tools
 Group(pl):      X11/Zarz±dcy Okien/Narzêdzia
 Source0: 	%{name}-%{version}.tar.gz
 Source1:        wmWeather.desktop
-BuildRequires:    XFree86-devel
-BuildRequires:    xpm-devel
+BuildRequires:	XFree86-devel
+BuildRequires:	xpm-devel
 BuildRoot:	/tmp/%{name}-%{version}-root
 
-%define _prefix	/usr/X11R6
-%define _mandir %{_prefix}/man
+%define 	_prefix		/usr/X11R6
+%define 	_mandir 	%{_prefix}/man
 
 %description 
 wmWeather is a WindowMaker dockapp that displays the current 

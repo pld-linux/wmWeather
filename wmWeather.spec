@@ -13,8 +13,6 @@ Requires:	perl-modules
 BuildRequires:	XFree86-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define 	_prefix		/usr/X11R6
-%define 	_mandir 	%{_prefix}/man
 
 %description
 wmWeather is a WindowMaker dockapp that displays the current weather

@@ -13,6 +13,7 @@ BuildPrereq:    xpm-devel
 BuildRoot:	/tmp/%{name}-%{version}-root
 
 %define _prefix	/usr/X11R6
+%define _mandir %{_prefix}/man
 
 %description 
 wmWeather is a WindowMaker dockapp that displays the current 

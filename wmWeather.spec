@@ -9,7 +9,6 @@ Group(pl):      X11/Zarz±dcy Okien/Narzêdzia
 Source0: 	%{name}-%{version}.tar.gz
 Source1:        wmWeather.desktop
 BuildRequires:	XFree86-devel
-BuildRequires:	xpm-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define 	_prefix		/usr/X11R6

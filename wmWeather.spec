@@ -52,4 +52,4 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/%{name}
 %attr(755,root,root) %{_bindir}/GrabWeather
 %{_mandir}/man1/*
-#%{_applnkdir}/DockApplets/wmWeather.desktop
+#%%{_applnkdir}/DockApplets/wmWeather.desktop

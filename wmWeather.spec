@@ -2,7 +2,7 @@ Summary:	Applet that displays the weather
 Summary(pl):	Aplet wy¶wietlaj±cy informacje o pogodzie
 Name:		wmWeather
 Version:	1.31
-Release:	4
+Release:	5
 License:	GPL
 Group:		X11/Window Managers/Tools
 Source0:	http://nis-www.lanl.gov/~mgh/WindowMaker/%{name}-%{version}.tar.gz
@@ -28,7 +28,8 @@ miejsca.
 
 %build
 %{__make} -C Src \
-        CFLAGS="%{rpmcflags} -Wall"
+        CFLAGS="%{rpmcflags} -Wall" \
+	LIBDIR="-L/usr/X11R6/%{_lib}"
 
 %install
 rm -rf $RPM_BUILD_ROOT

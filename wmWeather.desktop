@@ -3,6 +3,6 @@ Name=WmWeather
 Comment=Applet that displays the weather
 Comment[pl]=Informacje o pogodzie
 Exec=wmWeather
-Terminal=0
+Terminal=false
 Type=Application
 # vi: encoding=utf-8

@@ -1,13 +1,14 @@
-Summary:	Applet that displays the weather.
+Summary:	Applet that displays the weather
 Summary(pl):	Aplet wy¶wietlaj±cy informacje o pogodzie
 Name:		wmWeather
 Version:	1.31
 Release:	2
-Copyright:	GPL
-Group:          X11/Window Managers/Tools
-Group(pl):      X11/Zarz±dcy Okien/Narzêdzia
-Source0: 	%{name}-%{version}.tar.gz
-Source1:        wmWeather.desktop
+License:	GPL
+Group:		X11/Window Managers/Tools
+Group(de):	X11/Fenstermanager/Werkzeuge
+Group(pl):	X11/Zarz±dcy Okien/Narzêdzia
+Source0:	%{name}-%{version}.tar.gz
+Source1:	%{name}.desktop
 BuildRequires:	XFree86-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -15,33 +16,33 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define 	_mandir 	%{_prefix}/man
 
 %description 
-wmWeather is a WindowMaker dockapp that displays the current 
-weather conditions for a given location, in an easy to read icon.
+wmWeather is a WindowMaker dockapp that displays the current weather
+conditions for a given location, in an easy to read icon.
 
 %description -l pl
-wmWeather jest dokowalnym apletem dla WindowMakera, wy¶wietlaj±cym 
-informacje o aktualnych warunkach atmosferycznych dla wybranego miejsca.
+wmWeather jest dokowalnym apletem dla WindowMakera, wy¶wietlaj±cym
+informacje o aktualnych warunkach atmosferycznych dla wybranego
+miejsca.
 
 %prep
 %setup -q
 
 %build
 %{__make} -C Src \
-        CFLAGS="$RPM_OPT_FLAGS -Wall"
+        CFLAGS="%{rpmcflags} -Wall"
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1} \
         $RPM_BUILD_ROOT%{_applnkdir}/DockApplets
 
-install -s Src/%{name} $RPM_BUILD_ROOT%{_bindir}
+install Src/%{name} $RPM_BUILD_ROOT%{_bindir}
 install Src/GrabWeather $RPM_BUILD_ROOT%{_bindir}
 install Src/%{name}.1 $RPM_BUILD_ROOT%{_mandir}/man1
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/DockApplets
 
-gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man1/* \
-	HINTS BUGS CHANGES
+gzip -9nf HINTS BUGS CHANGES
 
 %clean
 rm -rf $RPM_BUILD_ROOT

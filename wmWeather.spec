@@ -1,5 +1,5 @@
 Summary:	Applet that displays the weather
-Summary(pl.UTF-8):   Aplet wyświetlający informacje o pogodzie
+Summary(pl.UTF-8):	Aplet wyświetlający informacje o pogodzie
 Name:		wmWeather
 Version:	1.31
 Release:	5

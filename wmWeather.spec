@@ -1,5 +1,5 @@
 Summary:	Applet that displays the weather
-Summary(pl):	Aplet wy¶wietlaj±cy informacje o pogodzie
+Summary(pl.UTF-8):   Aplet wyÅ›wietlajÄ…cy informacje o pogodzie
 Name:		wmWeather
 Version:	1.31
 Release:	5
@@ -18,8 +18,8 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 wmWeather is a WindowMaker dockapp that displays the current weather
 conditions for a given location, in an easy to read icon.
 
-%description -l pl
-wmWeather jest dokowalnym apletem dla WindowMakera, wy¶wietlaj±cym
+%description -l pl.UTF-8
+wmWeather jest dokowalnym apletem dla WindowMakera, wyÅ›wietlajÄ…cym
 informacje o aktualnych warunkach atmosferycznych dla wybranego
 miejsca.
 

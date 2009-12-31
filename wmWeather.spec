@@ -2,15 +2,16 @@ Summary:	Applet that displays the weather
 Summary(pl.UTF-8):	Aplet wyświetlający informacje o pogodzie
 Name:		wmWeather
 Version:	1.31
-Release:	5
+Release:	6
 License:	GPL
 Group:		X11/Window Managers/Tools
 Source0:	http://nis-www.lanl.gov/~mgh/WindowMaker/%{name}-%{version}.tar.gz
 # Source0-md5:	f04693aa86d22099162cff3d0b5c9275
 Source1:	%{name}.desktop
 URL:		http://nis-www.lanl.gov/~mgh/WindowMaker/DockApps.shtml
+BuildRequires:	xorg-lib-libXext-devel
+BuildRequires:	xorg-lib-libXpm-devel
 Requires:	perl-modules
-BuildRequires:	XFree86-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 
@@ -29,7 +30,7 @@ miejsca.
 %build
 %{__make} -C Src \
 	CFLAGS="%{rpmcflags} -Wall" \
-	LIBDIR="-L/usr/X11R6/%{_lib}"
+	LIBDIR="-L/usr/%{_lib}"
 
 %install
 rm -rf $RPM_BUILD_ROOT

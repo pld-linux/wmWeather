@@ -8,6 +8,7 @@ Group:		X11/Window Managers/Tools
 Source0:	http://nis-www.lanl.gov/~mgh/WindowMaker/%{name}-%{version}.tar.gz
 # Source0-md5:	f04693aa86d22099162cff3d0b5c9275
 Source1:	%{name}.desktop
+Patch0:		%{name}-Makefile.patch
 URL:		http://nis-www.lanl.gov/~mgh/WindowMaker/DockApps.shtml
 BuildRequires:	xorg-lib-libXext-devel
 BuildRequires:	xorg-lib-libXpm-devel
@@ -26,22 +27,22 @@ miejsca.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %{__make} -C Src \
+	CC="%{__cc}" \
 	CFLAGS="%{rpmcflags} -Wall" \
-	LIBDIR="-L/usr/%{_lib}"
+	LDFLAGS="%{rpmldflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1} \
-	$RPM_BUILD_ROOT%{_desktopdir}/docklets
+install -d $RPM_BUILD_ROOT%{_desktopdir}/docklets
 
-install Src/%{name} $RPM_BUILD_ROOT%{_bindir}
-install Src/GrabWeather $RPM_BUILD_ROOT%{_bindir}
-install Src/%{name}.1 $RPM_BUILD_ROOT%{_mandir}/man1
+%{__make} -C Src install \
+	DESTDIR="$RPM_BUILD_ROOT"
+
 install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}/docklets
-
 
 %clean
 rm -rf $RPM_BUILD_ROOT

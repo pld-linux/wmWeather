@@ -1,0 +1,43 @@
+--- wmWeather-1.31/Src/Makefile.orig	1999-03-17 01:59:39.000000000 +0100
++++ wmWeather-1.31/Src/Makefile	2010-01-03 01:47:09.176381108 +0100
+@@ -1,8 +1,8 @@
+ CC     = gcc
+ CFLAGS = -O2 -Wall
+-INCDIR = -I/usr/X11R6/include/X11 -I/usr/X11R6/include
+-DESTDIR= /usr/X11R6
+-LIBDIR = -L/usr/X11R6/lib
++DESTDIR=
++BINDIR = /usr/bin
++MANDIR = /usr/share/man
+ # for linux
+ LIBS   = -lXpm -lX11 -lXext
+ # for Solaris
+@@ -12,14 +12,14 @@
+ 
+ 
+ .c.o:
+-	$(CC) $(CFLAGS) -D$(shell echo `uname -s`) -c $< -o $*.o $(INCDIR)
++	$(CC) $(CFLAGS) -D$(shell echo `uname -s`) -c $< -o $*.o
+ 
+ 
+ all:	wmWeather.o wmWeather
+ 
+ wmWeather.o: wmWeather_master.xpm wmWeather_mask.xbm
+ wmWeather:	$(OBJS) 
+-	$(CC) $(CFLAGS) $(SYSTEM) -o wmWeather $^ $(INCDIR) $(LIBDIR) $(LIBS)
++	$(CC) $(CFLAGS) $(LDFLAGS) -o wmWeather $^ $(LIBS)
+ 
+ clean:
+ 	for i in $(OBJS) ; do \
+@@ -28,7 +28,8 @@
+ 	rm -f wmWeather
+ 
+ install:: wmWeather
+-	install -c -s -m 0755 wmWeather $(DESTDIR)/bin
+-	install -c    -m 0755 GrabWeather $(DESTDIR)/bin
+-	install -c    -m 0644 wmWeather.1 $(DESTDIR)/man/man1 
++	install -d $(DESTDIR)$(BINDIR) $(DESTDIR)$(MANDIR)/man1
++	install -c -m 0755 wmWeather $(DESTDIR)$(BINDIR)
++	install -c -m 0755 GrabWeather $(DESTDIR)$(BINDIR)
++	install -c -m 0644 wmWeather.1 $(DESTDIR)$(MANDIR)/man1 
+ 

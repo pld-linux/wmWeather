@@ -8,7 +8,7 @@ Group:		X11/Window Managers/Tools
 Source0:	http://nis-www.lanl.gov/~mgh/WindowMaker/%{name}-%{version}.tar.gz
 # Source0-md5:	f04693aa86d22099162cff3d0b5c9275
 Source1:	%{name}.desktop
-Patch0:		%{name}-Makefile.patch
+Source2:	%{name}.Makefile
 URL:		http://nis-www.lanl.gov/~mgh/WindowMaker/DockApps.shtml
 BuildRequires:	xorg-lib-libXext-devel
 BuildRequires:	xorg-lib-libXpm-devel
@@ -27,22 +27,30 @@ miejsca.
 
 %prep
 %setup -q
-%patch0 -p1
+
+awk '/OBJS *=/{p=1} {if(p)print} !/\\$/{p=0}' Src/Makefile > Src/Makefile.include
+
+cat << 'EOF' >> Src/Makefile.include
+NAME = %{name}
+EXTRABIN = GrabWeather
+MAN1FILE = %{name}.1
+DOCKLETFILE = %{SOURCE1}
+CC = %{__cc}
+OPTCFLAGS = %{rpmcflags}
+LDFLAGS = %{rpmldflags}
+EOF
+
+install %{SOURCE2} Src/Makefile
 
 %build
-%{__make} -C Src \
-	CC="%{__cc}" \
-	CFLAGS="%{rpmcflags} -Wall" \
-	LDFLAGS="%{rpmldflags}"
+%{__make} -C Src clean
+%{__make} -C Src
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_desktopdir}/docklets
 
 %{__make} -C Src install \
 	DESTDIR="$RPM_BUILD_ROOT"
-
-install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}/docklets
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -52,5 +60,5 @@ rm -rf $RPM_BUILD_ROOT
 %doc HINTS BUGS CHANGES
 %attr(755,root,root) %{_bindir}/%{name}
 %attr(755,root,root) %{_bindir}/GrabWeather
-%{_mandir}/man1/*
+%{_mandir}/man1/%{name}.1*
 %{_desktopdir}/docklets/wmWeather.desktop
